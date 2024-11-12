@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View1112_2</title>
+</head>
+<body>
+<h1>Thymeleaf 연습2 - 배열</h1>
+<h5>NUMBERS</h5>
+<b th:text="${numbers}"></b>
+
+<div th:each="num : ${numbers}">num</div>
+<div th:each="num : ${numbers}" th:text="${num}"></div>
+<div th:each="num,stat : ${numbers}">
+    <span th:text="${stat.index}"></span>
+    <span>-</span>
+    <span th:text="${num}"></span>
+</div>
+<br>
+<div th:each="num,stat : ${numbers}">
+    <span th:text="${stat.count}"></span>
+    <span>-</span>
+    <span th:text="${num}"></span>
+</div>
+<h2>num%2==0</h2>
+<div th:each="num,stat : ${numbers}" th:if="${num%2==0}">
+    <span th:text="${stat.count}"></span>
+    <span>-</span>
+    <span th:text="${num}"></span>
+</div>
+<h2>stat.odd</h2>
+<div th:each="num,stat : ${numbers}" th:if="${stat.odd}">
+    <span th:text="${stat.count}"></span>
+    <span>-</span>
+    <span th:text="${num}"></span>
+</div>
+
+<hr>
+<h5>STRINGS</h5>
+<b th:text="${strings}"></b>
+
+<div th:each="s : ${strings}" th:text="${s}"></div>
+<!--<div th:each="s : ${strings}" th:text="|알파벳: ${s}|">-->
+<div th:each="s : ${strings}">
+    <b>알파벳22:</b> <span style="color: red" th:text="${s}"></span>
+</div>
+<hr>
+
+<h2>IF-ELSE</h2>
+<th:block th:if="${numbers.length < 3}">하이^-^</th:block><br>
+
+<th:block th:if="!${numbers.length < 3}">바이^-^</th:block><br>
+<th:block th:if="not ${numbers.length < 3}">바이^-^</th:block><br>
+<th:block th:unless="${numbers.length < 3}">바이^-^</th:block><br>
+<hr>
+
+<div>
+    <h4>strings배열의 index 1과 100을 더하면? => A100 </h4>
+    <span th:text="${strings.get(1)}"></span>
+    <span th:text="${strings[1]}"></span>
+
+    <span th:text="${strings[1]+100}"></span>
+    <span th:text="${strings[1]}+100"></span>
+</div>
+
+<hr>
+<h2>변수 생성하기</h2>
+<div th:with="result=${strings[1] + 100},number=${numbers[0]+100}">
+    <h4>strings배열의 index 1과 100을 더하면? => B100 </h4>
+    <span th:text="${result}"></span>
+    <h4>numbers배열의 index 0과 100을 더하면? => 110 </h4>
+    <span th:text="${number}"></span>
+</div>
+
+</body>
+</html>

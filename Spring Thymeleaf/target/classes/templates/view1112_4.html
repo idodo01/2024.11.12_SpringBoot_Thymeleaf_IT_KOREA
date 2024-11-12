@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View1112_4</title>
+</head>
+<body>
+<h1>Thymeleaf 연습4</h1>
+
+<!--replace는 View1112_4.html에 있는 기존 태그(div) 무시하고,
+sub.html 태그(h1) 자체로 대체됨-->
+<div th:replace="pile/sub.html :: sub_title">
+    <span>Thymeleaf span1111</span>
+</div>
+
+<!--include는 View1112_4.html에 있는 기존 태그(div)는 그대로 있고
+그 안에 있는 하위태그(span)가
+sub.html의 main태그로 대체됨-->
+<div th:include="~{pile/sub :: sub}">
+    <span>Thymeleaf span2222</span>
+</div>
+</body>
+</html>

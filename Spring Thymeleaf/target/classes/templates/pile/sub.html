@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SUB</title>
+</head>
+<body>
+<h1 th:fragment="sub_title">SUB내용입니다1111111</h1>
+<h3>^0^11111</h3>
+
+<main th:fragment="sub">
+    <hr>
+    <h1>SUB내용입니다222222222222</h1>
+    <h3>^0^2222</h3>
+    <h5 th:text="${data}"></h5>
+<!--    data는 view1112_4.html로 넘어온 것인데도, sub.html에서 사용가능해진다-->
+<!--    view1112_4.html에서 sub.html를 replace하기 때문에-->
+</main>
+
+</body>
+</html>

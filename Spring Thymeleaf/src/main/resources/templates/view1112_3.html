@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View1112_3</title>
+</head>
+<body>
+<h1>Thymeleaf 연습3 - 객체</h1>
+<h5>COMPUTER</h5>
+<div>
+    <b>COMPUTER의 내용: </b><span th:text="${computer}"></span>
+</div>
+<h4>단순 출력</h4>
+<div>
+    <b>컴퓨터 ID:</b><span th:text="${computer.id}"></span> <br>
+    <b>컴퓨터 PRICE:</b><span th:text="${computer.price}"></span> <br>
+    <b>컴퓨터 Release Date:</b><span th:text="${computer.releaseDate}"></span> <br>
+</div>
+
+<h4>OBJECT 사용</h4>
+<div th:object="${computer}">
+    <b>컴퓨터 ID:</b><span th:text="*{id}"></span> <br>
+    <b>컴퓨터 PRICE:</b><span th:text="*{price}"></span> <br>
+    <b>컴퓨터 Release Date:</b><span th:text="*{releaseDate}"></span> <br>
+</div>
+
+<form th:object="${computer}">
+    <input type="text" th:field="*{id}">
+</form>
+
+<form action="/view1112_4">
+    NAME: <input type="text" name="id">
+    PRICE: <input type="text" name="price">
+    <button>이동한다</button>
+</form>
+<a th:href="@{/view1112_4(id='test', price=${computer.price})}">A태그로 이동한다</a>
+
+
+
+</body>
+</html>
