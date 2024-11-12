@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View1112_1</title>
+</head>
+<body>
+<h1>Thymeleaf 연습</h1>
+<b th:text="${text}">TEST</b> <br>
+<input type="text" value="abc" th:value="${text}">
+<h2>이스케이프 처리</h2>
+<div th:text="${welcome}"></div>
+<div th:utext="${welcome}"></div>
+<h2>단순 글자</h2>
+<b th:text="'ㅋ.ㅋ'"></b> <br>
+<b th:text=" 'abc' + 'def' "></b> <br>
+<b th:text="${text} + '-241112'"></b>
+<b th:text="|${text}-241112|"></b>
+
+</body>
+</html>
