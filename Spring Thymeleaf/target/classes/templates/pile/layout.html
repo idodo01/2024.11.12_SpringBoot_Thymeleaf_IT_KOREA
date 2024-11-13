@@ -7,13 +7,13 @@
     <title>LAYOUT 정의</title>
 </head>
 <body>
-<section>
+<section th:replace="~{pile/header :: header}">
     HEADER 부분 입니다
 </section>
-<main layout:fragment="">
+<main layout:fragment="main-layout">
     MAIN 부분 입니다
 </main>
-<section>
+<section th:replace="~{pile/footer :: footer}">
     FOOTER 부분 입니다
 </section>
 </body>

@@ -39,4 +39,14 @@ public class MainController {
         System.out.println(computer);
     }
 
+    @GetMapping("/view1113_1")
+    public void get_view1113_1(){}
+
+    @GetMapping("/view1113_2")
+    public void get_view1113_2(){}
+
+    @GetMapping("/view1113_3")
+    public void get_view1113_3(){}
+
+
 }
